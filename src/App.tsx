@@ -154,7 +154,8 @@ const App = () => {
             key={item.id}
             item={item}
             deleteSelectedData={handleDeleteSelectedData}
-            openModal={handleOpenModal} 
+            openModal={handleOpenModal}
+            currentResource={currentResource} 
           />
         ))}
       </ul>}
