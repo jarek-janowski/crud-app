@@ -180,7 +180,7 @@ const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           <option value="users">/users</option>
         </select>
       </label>
-      <p onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="app__link">https://jsonplaceholder.typicode.com/<span>{currentResource}</span></p>
+      <a target="_blank" rel="noopener noreferrer" href={`https://jsonplaceholder.typicode.com/${currentResource}`} className="app__link">https://jsonplaceholder.typicode.com/<span>{currentResource}</span></a>
       <AddData 
         addData={handleAddData} 
         titleInputChange={handleTitleInputChange}

@@ -21,12 +21,15 @@
         text-align: center;
         color: $lightblue;
         margin: 32px 0;
-        border: 2px solid $darkblue;
+        border: 2px solid $lightblue;
         border-radius: 5px;
         padding: 12px 8px;
         cursor: pointer;
         @media(min-width: 1177px) {
             font-size: 18px;
+        }
+        &:hover{
+            border-color: $darkblue;
         }
         & > span {
             color: $darkblue;
@@ -47,7 +50,7 @@
         padding: 8px 12px;
         color: $darkblue;
         background-color: #eee;
-        border: 1px solid #ddd;
+        border: 1px solid $lightblue;
         cursor: pointer;
         border-radius: 5px;
         margin-left: 16px;
@@ -55,7 +58,7 @@
         font-family: 'Roboto', sans-serif;
         &:hover {
             outline: none;
-            border: 1px solid #bbb;
+            border: 1px solid $darkblue;
         }
         & > option {
             background: #fff;

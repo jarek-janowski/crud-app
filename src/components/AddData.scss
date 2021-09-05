@@ -9,7 +9,7 @@
         padding: 8px 16px;
         width: 60%;
         margin: 0 auto;
-        border: 1px solid $darkblue;
+        border: 1px solid $lightblue;
         border-radius: 5px;
         background-color: #eee;
         color: $darkblue;
@@ -17,6 +17,9 @@
         width: 50%;
         max-width: 300px;
         text-transform: uppercase;
+        &:hover{
+            border-color: $darkblue;
+        }
         @media(min-width: 1177px) {
             font-size: 16px;
         }
