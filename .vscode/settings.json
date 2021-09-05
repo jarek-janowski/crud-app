@@ -1,0 +1,4 @@
+{
+    "workbench.editor.languageDetection": false,
+    "typescript.workspaceSymbols.scope": "currentProject"
+}
