@@ -7,6 +7,7 @@
 - React Hooks
 - sass/scss
 - jsonPlaceholder API
+- useForm & yup
 
 ## HOW TO USE
 
