@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import './App.scss';
 import CurrentResourceListItem from './components/CurrentResourceListItem';
 import AddData from './components/AddData';
-import { v4 as uuidv4 } from 'uuid';
-console.log(uuidv4())
+import EditModal from './components/EditModal'
+
 const App = () => {
 
   const [apiData, setApiData] = useState([] as any)
   const [currentResource, setCurrentResource] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [editId, setEditId] = useState(0);
 
   const [titleInput, setTitleInput] = useState('');
   const [bodyInput, setBodyInput] = useState('');
@@ -48,6 +50,46 @@ const App = () => {
     
   }
 
+  const handleEditSelectedData = () => {
+    fetch(`https://jsonplaceholder.typicode.com/${currentResource}/${editId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        title: titleInput,
+        body: bodyInput,
+      }),
+      headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    })
+    .then((res) => {
+      if (res.status !== 200){
+        return
+      }
+      return res.json()
+    })
+    .then((data) => {
+      const elementsIndex = apiData.findIndex((item: any) => item.id === editId)
+      let newArray = [...apiData]
+      newArray[elementsIndex] = {...newArray[elementsIndex], 
+        title: data.title, 
+        body: data.body,
+        completed: data.completed,
+        email: data.email,
+        name: data.name,
+        url: data.url,
+        thumbnailUrl: data.thumbnailUrl
+      }
+      setApiData(newArray);
+      setTitleInput('');
+      setBodyInput('');
+      setShowModal(false);
+    })
+    .catch((err) => {
+      console.log(err)
+    }) 
+    
+  }
+
   const handleDeleteSelectedData = (id: number) => {
 
     fetch(`https://jsonplaceholder.typicode.com/${currentResource}/${id}`, {
@@ -65,6 +107,16 @@ const App = () => {
 
   const handleSelectResource = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentResource(e.target.value)
+  }
+
+  const handleOpenModal = (id: number) => {
+    setShowModal(true)
+    setEditId(id)
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
+    setEditId(0)
   }
 
   const handleTitleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,10 +152,17 @@ const App = () => {
           <CurrentResourceListItem 
             key={item.id}
             item={item}
-            deleteSelectedData={handleDeleteSelectedData} 
+            deleteSelectedData={handleDeleteSelectedData}
+            openModal={handleOpenModal} 
           />
         ))}
       </ul>}
+      {showModal && <EditModal 
+        editSelectedData={handleEditSelectedData}
+        closeModal={handleCloseModal}
+        titleInputChange={handleTitleInputChange}
+        bodyInputChange={handleBodyInputChange}
+      />}
     </div>
   );
 }
