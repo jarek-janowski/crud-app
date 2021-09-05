@@ -168,7 +168,7 @@ const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 }
 
   return (
-    <div className="App">
+    <div className="app">
       <label className="app__label">Choose a resource:
         <select className="app__select" onChange={handleSelectResource}>
           <option value="">--Please choose an option--</option>
@@ -196,7 +196,7 @@ const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         checkboxChange={handleCheckboxChange}
         checkbox={checkbox}
       />
-      {currentResource && <ul style={{padding: 0}}>
+      {currentResource && <ul className="app__list">
         {apiData.map((item: any) => (
           <CurrentResourceListItem 
             key={item.id}

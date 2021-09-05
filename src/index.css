@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 32px 16px;
+  background: #F5FFFA;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

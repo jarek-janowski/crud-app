@@ -40,7 +40,7 @@ const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item,
         email = <p>email: {item.email}</p>
     }
     if(currentResource === 'comments' || currentResource === 'users'){
-        fullName = <h3>name: {item.name}</h3>
+        fullName = <h3 className="list-item__title">name: {item.name}</h3>
     }
 
     return ( 
@@ -48,7 +48,7 @@ const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item,
             <div>
                 {title}
                 {fullName}
-                {currentResource === 'users' && <p>userName: {item.username} </p>}
+                {currentResource === 'users' && <p className="list-item__body">userName: {item.username} </p>}
                 {email}
                 {body}
                 {currentResource === 'todos' && <input type="checkbox" checked={item.completed} readOnly/>}

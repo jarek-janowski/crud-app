@@ -1,11 +1,19 @@
 @import './constants.scss';
 
 .app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &__label{
         color: $darkblue;
         font-weight: 700;
+        @media(min-width: 1177px) {
+            font-size: 18px;
+        }
     }
     &__link{
+        width: 100%;
+        max-width: 600px;
         position: sticky;
         background-color: #eee;
         top: 1%;
@@ -17,9 +25,22 @@
         border-radius: 5px;
         padding: 12px 8px;
         cursor: pointer;
+        @media(min-width: 1177px) {
+            font-size: 18px;
+        }
         & > span {
             color: $darkblue;
             font-weight: 700;
+        }
+    }
+    &__list {
+        width: 100%;
+        @media(min-width: 800px){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media(min-width: 1477px){
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
     &__select{
