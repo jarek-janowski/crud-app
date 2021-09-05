@@ -140,6 +140,7 @@ const App = () => {
           <option value="users">/users</option>
         </select>
       </label>
+      <p onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="app__link">https://jsonplaceholder.typicode.com/<span>{currentResource}</span></p>
       <AddData 
         addData={handleAddData} 
         titleInputChange={handleTitleInputChange}

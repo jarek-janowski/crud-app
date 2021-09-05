@@ -1,0 +1,42 @@
+@import './constants.scss';
+
+.app{
+    &__label{
+        color: $darkblue;
+        font-weight: 700;
+    }
+    &__link{
+        position: sticky;
+        background-color: #eee;
+        top: 1%;
+        font-size: 12px;
+        text-align: center;
+        color: $lightblue;
+        margin: 32px 0;
+        border: 2px solid $darkblue;
+        border-radius: 5px;
+        padding: 12px 8px;
+        cursor: pointer;
+        & > span {
+            color: $darkblue;
+            font-weight: 700;
+        }
+    }
+    &__select{
+        padding: 8px 12px;
+        color: $darkblue;
+        background-color: #eee;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 16px;
+        margin-top: 16px;
+        &:hover {
+            outline: none;
+            border: 1px solid #bbb;
+        }
+        & > option {
+            background: #fff;
+        }
+    }
+}
