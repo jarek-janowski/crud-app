@@ -13,13 +13,30 @@ const App = () => {
       .then(data => setApiData(data))
   }, [currentResource]);
 
+  const handleDeleteSelectedData = (id: number) => {
+
+    fetch(`https://jsonplaceholder.typicode.com/${currentResource}/${id}`, {
+      method: 'DELETE',
+    })
+    .then((res) => {
+      if (res.status !== 200){
+        return
+      }
+      setApiData(apiData.filter((item: any) => {
+        return item.id !== id;
+      }))
+    })
+  }
+
+
   return (
     <div className="App">
       {currentResource && <ul style={{padding: 0}}>
         {apiData.map((item: any) => (
           <CurrentResourceListItem 
             key={item.id}
-            item={item} 
+            item={item}
+            deleteSelectedData={handleDeleteSelectedData} 
           />
         ))}
       </ul>}

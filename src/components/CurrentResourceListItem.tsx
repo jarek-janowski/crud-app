@@ -1,11 +1,14 @@
+
 interface CurrentResourceListItemProps {
     item: {
+        id: number,
         title: string,
         body: string,
-    }
+    },
+    deleteSelectedData: (id: number) => void,
 }
  
-const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item }) => {
+const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item, deleteSelectedData }) => {
     
     return ( 
         <li className="list-item">
@@ -15,7 +18,7 @@ const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item 
             </div>
             <div>
                 <button onClick={() => {}}>Edit</button>
-                <button onClick={() => {}}>Delete</button>
+                <button onClick={() => deleteSelectedData(item.id)}>Delete</button>
             </div>
         </li>
      );
