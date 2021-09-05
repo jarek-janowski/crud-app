@@ -11,16 +11,6 @@ interface CurrentResourceListItemProps {
         email: string,
         name: string,
         username: string
-        address: {
-            street: string
-            suite: string
-            city: string
-            zipcode: string
-            geo: {
-                lat: string
-                lng: string
-            }
-        }
     },
     deleteSelectedData: (id: number) => void,
     openModal: (id: number) => void,
@@ -64,16 +54,6 @@ const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item,
                 {currentResource === 'todos' && <input type="checkbox" checked={item.completed} readOnly/>}
                 {currentResource === 'photos' && <img style={{width: 150}} src={item.url} alt={item.title}/> }
                 {currentResource === 'photos' && <img style={{width: 100}} src={item.thumbnailUrl} alt={item.title} className="list-item__thumbnail"/> }
-                {currentResource === 'users' && item.address !== undefined &&
-                <label>Adress
-                    <p>street: {item.address.street}</p>
-                    <p>suite: {item.address.suite}</p>
-                    <p>city: {item.address.city}</p>
-                    <p>zipcode: {item.address.zipcode}</p>
-                    <p>suite: {item.address.geo.lat}</p>
-                    <p>suite: {item.address.geo.lng}</p>
-                </label>
-                }
             </div>
             {currentResource && <div>
                 <button onClick={() => openModal(item.id)}>Edit</button>

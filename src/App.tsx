@@ -67,6 +67,12 @@ const App = () => {
       body: JSON.stringify({
         title: titleInput,
         body: bodyInput,
+        email: emailInput,
+        name: nameInput,
+        url: photoUrlInput,
+        thumbnailUrl: ThumbnailUrlInput,
+        completed: checkbox,
+        username: userNameInput
       }),
       headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -88,7 +94,8 @@ const App = () => {
         email: data.email,
         name: data.name,
         url: data.url,
-        thumbnailUrl: data.thumbnailUrl
+        thumbnailUrl: data.thumbnailUrl,
+        username: data.username
       }
       setApiData(newArray);
       setTitleInput('');
@@ -206,6 +213,14 @@ const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         closeModal={handleCloseModal}
         titleInputChange={handleTitleInputChange}
         bodyInputChange={handleBodyInputChange}
+        emailInputChange={handleEmailInputChange}
+        nameInputChange={handleNameInputChange}
+        photoUrlInputChange={handlePhotoUrlInputChange}
+        thumbnailUrlInputChange={handleThumbnailUrlInputChange}
+        userNameInputChange={handleUserNameInputChange}
+        checkboxChange={handleCheckboxChange}
+        checkbox={checkbox}
+        currentResource={currentResource}
       />}
     </div>
   );
