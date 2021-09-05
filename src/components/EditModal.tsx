@@ -60,7 +60,7 @@ const EditModal: React.FC<EditModalProps> = ({
                 <div className="modal__header">
                     <h4 className="modal__title">Edit data</h4>
                 </div>
-                <div className="modal__body">
+                <form className="modal__body">
                     {title}
                     {body}
                     {userName}
@@ -69,7 +69,7 @@ const EditModal: React.FC<EditModalProps> = ({
                     {currentResource === 'photos' && <input type="url" placeholder="photo url" onChange={photoUrlInputChange} />}
                     {currentResource === 'photos' && <input type="url" placeholder="thumbnail url" onChange={thumbnailUrlInputChange} /> }
                     {currentResource === 'todos' && <input type="checkbox" checked={checkbox} onChange={checkboxChange}/>}
-                </div>
+                </form>
                 <div className="modal__footer">
                     <button onClick={() => closeModal()} className="modal__button">Cancel</button>
                     <button onClick={() => editSelectedData()} className="modal__button">Confirm</button>

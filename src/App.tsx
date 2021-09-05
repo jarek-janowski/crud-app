@@ -52,8 +52,13 @@ const App = () => {
     })
     .then((data) => {
       setApiData([data, ...apiData])
-      setTitleInput('')
-      setBodyInput('')
+      setTitleInput('');
+      setBodyInput('');
+      setEmailInput('');
+      setNameInput('');
+      setPhotoUrlInput('');
+      setThumbnailUrlInput('');
+      setUserNameInput('');
     })
     .catch((err) => {
       console.log(err)
@@ -99,6 +104,11 @@ const App = () => {
       setApiData(newArray);
       setTitleInput('');
       setBodyInput('');
+      setEmailInput('');
+      setNameInput('');
+      setPhotoUrlInput('');
+      setThumbnailUrlInput('');
+      setUserNameInput('');
       setShowModal(false);
     })
     .catch((err) => {
