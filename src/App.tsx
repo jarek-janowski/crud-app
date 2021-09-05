@@ -13,6 +13,12 @@ const App = () => {
 
   const [titleInput, setTitleInput] = useState('');
   const [bodyInput, setBodyInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [nameInput, setNameInput] = useState('');
+  const [photoUrlInput,setPhotoUrlInput] = useState('');
+  const [ThumbnailUrlInput, setThumbnailUrlInput] = useState('');
+  const [userNameInput, setUserNameInput] = useState('');
+  const [checkbox, setCheckbox] = useState(false);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${currentResource}/?_limit=100`)
@@ -25,9 +31,14 @@ const App = () => {
       method: 'POST',
       body: JSON.stringify({
         id: apiData.length + 1,
+        completed: checkbox,
         title: titleInput,
         body: bodyInput,
-        
+        email: emailInput,
+        name: nameInput,
+        url: photoUrlInput,
+        thumbnailUrl: ThumbnailUrlInput,
+        username: userNameInput
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8'
@@ -126,6 +137,29 @@ const App = () => {
   const handleBodyInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setBodyInput(e.target.value)
   }
+  const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailInput(e.target.value)
+}
+
+const handleNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNameInput(e.target.value)
+}
+
+const handlePhotoUrlInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhotoUrlInput(e.target.value)
+}
+
+const handleThumbnailUrlInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setThumbnailUrlInput(e.target.value)
+}
+
+const handleCheckboxChange = () => {
+    setCheckbox(!checkbox)
+}
+
+const handleUserNameInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setUserNameInput(e.target.value)
+}
 
   return (
     <div className="App">
@@ -147,6 +181,14 @@ const App = () => {
         bodyInputChange={handleBodyInputChange}
         titleInput={titleInput}
         bodyInput={bodyInput}
+        currentResource={currentResource}
+        emailInputChange={handleEmailInputChange}
+        nameInputChange={handleNameInputChange}
+        photoUrlInputChange={handlePhotoUrlInputChange}
+        thumbnailUrlInputChange={handleThumbnailUrlInputChange}
+        userNameInputChange={handleUserNameInputChange}
+        checkboxChange={handleCheckboxChange}
+        checkbox={checkbox}
       />
       {currentResource && <ul style={{padding: 0}}>
         {apiData.map((item: any) => (

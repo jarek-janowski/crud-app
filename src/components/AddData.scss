@@ -13,7 +13,7 @@
         color: $darkblue;
         font-family: 'Roboto', sans-serif;
     }
-    &__input {
+    & > input {
         margin-bottom: 32px;
         border: none;
         border-bottom: 2px solid $lightblue;
