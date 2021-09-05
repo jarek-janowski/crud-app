@@ -1,3 +1,4 @@
+import './CurrentResourceListItem.scss'
 
 interface CurrentResourceListItemProps {
     item: {
@@ -14,8 +15,8 @@ const CurrentResourceListItem: React.FC<CurrentResourceListItemProps> = ({ item,
     return ( 
         <li className="list-item">
             <div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
+                <h3 className="list-item__title">{item.title}</h3>
+                <p className="list-item__body">{item.body}</p>
             </div>
             <div>
                 <button onClick={() => openModal(item.id)}>Edit</button>
