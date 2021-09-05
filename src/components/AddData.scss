@@ -1,0 +1,28 @@
+@import '../constants.scss';
+
+.form{
+    display: flex;
+    flex-direction: column;
+    &__button {
+        padding: 8px 16px;
+        width: 60%;
+        margin: 0 auto;
+        border: 1px solid $darkblue;
+        border-radius: 5px;
+        background-color: #eee;
+        color: $darkblue;
+        font-family: 'Roboto', sans-serif;
+    }
+    &__input {
+        margin-bottom: 32px;
+        border: none;
+        border-bottom: 2px solid $lightblue;
+        font-family: 'Roboto', sans-serif;
+        
+        &:focus{
+            outline: none;
+            border-color: $darkblue;
+        }
+    }
+    
+}

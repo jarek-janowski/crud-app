@@ -1,3 +1,4 @@
+import './AddData.scss'
 
 interface AddDataProps {
     addData: () => void,
