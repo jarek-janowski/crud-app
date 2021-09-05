@@ -5,7 +5,7 @@ import CurrentResourceListItem from './components/CurrentResourceListItem';
 const App = () => {
 
   const [apiData, setApiData] = useState([] as any)
-  const [currentResource, setCurrentResource] = useState('posts');
+  const [currentResource, setCurrentResource] = useState('');
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/${currentResource}/?_limit=100`)
@@ -28,9 +28,23 @@ const App = () => {
     })
   }
 
+  const handleSelectResource = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentResource(e.target.value)
+  }
 
   return (
     <div className="App">
+      <label className="app__label">Choose a resource:
+        <select className="app__select" onChange={handleSelectResource}>
+          <option value="">--Please choose an option--</option>
+          <option value="posts">/posts</option>
+          <option value="comments">/comments</option>
+          <option value="albums">/albums</option>
+          <option value="photos">/photos</option>
+          <option value="todos">/todos</option>
+          <option value="users">/users</option>
+        </select>
+      </label>
       {currentResource && <ul style={{padding: 0}}>
         {apiData.map((item: any) => (
           <CurrentResourceListItem 
